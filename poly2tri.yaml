@@ -1,0 +1,4 @@
+version-ctrl: github 
+src_repo: greenm01/poly2tri
+tag_prefix: ^v
+seperator: .
