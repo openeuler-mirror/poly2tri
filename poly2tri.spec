@@ -1,6 +1,6 @@
 Name:           poly2tri
 Version:        0.0
-Release:        19
+Release:        20
 Summary:        A 2D constrained Delaunay triangulation library
 License:        BSD
 URL:            https://github.com/greenm01/poly2tri
@@ -24,7 +24,7 @@ cp %{SOURCE1} poly2tri/Makefile
 
 %build
 cd poly2tri
-%make_build CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}"
+%make_build CXX=%toolchain CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags}"
 
 %install
 install -Dp -m 0755 poly2tri/libpoly2tri.so.1.0 %{buildroot}%{_libdir}/libpoly2tri.so.1.0
@@ -45,6 +45,8 @@ cp -p poly2tri/*.h  %{buildroot}%{_includedir}/poly2tri
 %{_includedir}/poly2tri
 
 %changelog
+* Thu May 25 2023 Xiaoya Huang <huangxiaoya@iscas.ac.cn> - 0.0-20
+- Make CXX compiler depend on toolchain
+
 * Wed Feb 19 2020 Jiangping Hu <hujp1985@foxmail.com> - 0.0-19
 - Package init
-
